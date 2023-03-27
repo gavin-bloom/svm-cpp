@@ -28,13 +28,14 @@ public:
     void fit(const vector<vector<T>>& X_, const vector<T>& y_, T C_, T tol_, int max_iter_, T sigma_) {
         X = X_;
         y = y_;
-        alpha.resize(X.size());
+        alpha.resize(X.size()); 
         b = 0;
         tol = tol_;
         C = C_;
         max_iter = max_iter_;
         sigma = sigma_;
         
+	//SMO
         int iter = 0;
         while (iter < max_iter) {
             int num_changed_alphas = 0;
