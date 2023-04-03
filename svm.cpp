@@ -73,7 +73,8 @@ public:
                         continue;
                     }
 		    
-	            //compute eta
+	            //compute eta and make sure that the second derivative of the objective function with respect to alpha[j] is negative
+		    //no maximum if not
                     T eta = 2 * kernel(X[i], X[j]) - kernel(X[i], X[i]) - kernel(X[j], X[j]);
                     if (eta >= 0) {
                         continue;
