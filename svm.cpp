@@ -26,7 +26,7 @@ private:
     }
     
 public:
-    void fit(const vector<vector<T>>& X_, const vector<T>& y_, T C_, T tol_, int max_iter_, T sigma_) {
+    void fit(const vector<vector<T>>& X_, const vector<T>& y_, T C_, T tol_, int max_iter_) {
         X = X_;
         y = y_;
         alpha.resize(X.size()); 
@@ -34,7 +34,6 @@ public:
         tol = tol_;
         C = C_;
         max_iter = max_iter_;
-        sigma = sigma_;
         
 	//SMO loop
         int iter = 0;
@@ -127,7 +126,7 @@ int main() {
     SVM<double> svm;
     vector<vector<double>> X = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
     vector<double> y = {-1, 1, 1, -1};
-    svm.fit(X, y, 1.0, 0.0001, 10000, 0.5);
+    svm.fit(X, y, 1.0, 0.0001, 10000);
 	vector<vector<double>> X_test = {{0.5, 0.5}, {0.3, 0.7}, {0.8, 0.8}, {0.3, 0.0} };
 	for (const auto& x : X_test) {
 		cout << "Prediction for (" << x[0] << ", " << x[1] << "): " << svm.predict(x) << endl;
