@@ -92,7 +92,7 @@ public:
                     alpha[i] += y[i] * y[j] * (alpha_j_old - alpha[j]);
 		    //compute bias
                     T b1 = b - E_i - y[i] * (alpha[i] - alpha_i_old) * kernel(X[i], X[i]) - y[j] * (alpha[j] - alpha_j_old) * kernel(X[i], X[j]);
-					T b2 = b - E_j - y[i] * (alpha[i] - alpha_i_old) * kernel(X[i], X[j]) - y[j] * (alpha[j] - alpha_j_old) * kernel(X[j], X[j]);
+		    T b2 = b - E_j - y[i] * (alpha[i] - alpha_i_old) * kernel(X[i], X[j]) - y[j] * (alpha[j] - alpha_j_old) * kernel(X[j], X[j]);
                     if (alpha[i] > 0 && alpha[i] < C) {
                         b = b1;
                     } else if (alpha[j] > 0 && alpha[j] < C) {
