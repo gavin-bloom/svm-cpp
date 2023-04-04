@@ -80,9 +80,11 @@ public:
                         continue;
                     }
 		    
-	            //comput new alpha for sample j and check tolerance
+	            //compute new alpha for sample j 
                     alpha[j] -= y[j] * (E_i - E_j) / eta;
                     alpha[j] = min(max(alpha[j], L), H);
+			
+		    //make sure change is large enough to make computing kernels "worth it"
                     if (abs(alpha[j] - alpha_j_old) < tol) {
                         alpha[j] = alpha_j_old;
                         continue;
